@@ -3,6 +3,6 @@
     internal class Order
     {
         public char Sku { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
     }
 }
