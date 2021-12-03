@@ -17,7 +17,7 @@ namespace KataDomain
         public List<PricingRule> Rules { get; }
         public Dictionary<char, int> Prices { get; }
 
-        private List<Order> ParseOrder()
+        private List<Order> ParseOrder()//TODO: refactor out as interface to inject in usin DI, remove implementation from here to make extensible
         {
             char[] skus = _order.ToCharArray();
             List<Order> orders = new List<Order>();
@@ -42,48 +42,31 @@ namespace KataDomain
 
         private int GetTotal(List<Order> orders)
         { 
-            List<(Order Order, bool Discounted)> ordersProcessing = orders
-                .Select(a => (a, false)).ToList();
             //apply discounts
             List<char> discountedSkus = orders
                 .Where(a => Rules.Any(r => r.SKU == a.Sku) &&
                     orders.Count(r => r.Sku == a.Sku) >=
                     Rules.First(r => r.SKU == a.Sku).Quantity)
                 .Select(x => x.Sku).ToList();
+            var rulesToApplyy = Rules.Where(a => discountedSkus.Contains(a.SKU)).ToArray();
             //calculate prices for discounted orders and remove those orders
-            foreach (var sku in discountedSkus)
+
+            for (int i = 0; i < rulesToApplyy.Length; i++)
             {
-                var noOfSkuOrders = orders.Count(a => a.Sku == sku);
-                var discountRule = Rules.Where(r => r.SKU == sku)
-                    .FirstOrDefault();
+                double discountUnit = (double)rulesToApplyy[i].Discount / rulesToApplyy[i].Quantity;
 
-                var discount = discountRule.Discount;
-                double discountUnit = (double)discount / discountRule.Quantity;
-                var timesToApply = noOfSkuOrders / discountRule.Quantity;
-                var currentTime = 0;
-                int i = 0;
-                ordersProcessing
-                    .ForEach(op => {
-                        if (i < discountRule.Quantity &&
-                        ordersProcessing.Count(oplist => !oplist.Discounted &&
-                        oplist.Order.Sku == sku) <= (discountRule.Quantity * 2)
-                        && op.Order.Sku == sku && !op.Discounted)
-                        {
-                            op.Discounted = true;
-                            op.Order.Price = discountUnit;
-                            i++;
-                        }
-                        else
-                        {
-                            i = 0;
-                            currentTime++;
-                        }
-                        
-                    });
-
+                var rounds = Math.Floor((decimal)orders.Count(a => a.Sku == rulesToApplyy[i].SKU) / rulesToApplyy[i].Quantity);
+                for (int j = 0; j < rounds; j++)
+                {
+                    for (int k = 0; k < rulesToApplyy[i].Quantity; k++)
+                    {
+                        orders.Where(a => a.Price != discountUnit && a.Sku == rulesToApplyy[i].SKU).FirstOrDefault().Price = discountUnit;
+                    }
+                }
             }
+
             //sum discounted and non discounted orders
-            return (int)Math.Ceiling(ordersProcessing.Sum(o => o.Order.Price));
+            return (int)Math.Round(orders.Sum(o => o.Price));
 
         }
     }
