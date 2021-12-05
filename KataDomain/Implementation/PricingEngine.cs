@@ -1,46 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Kata.Domain.DTO;
+using Kata.Core.Abstractions;
+using Kata.Domain.Abstractions;
 
-namespace KataDomain
+namespace Kata.Domain.Implementation
 {
-    public class PricingEngine
+    public class PlainTextOrdersPricingEngine : IPriceEngine<string>//char skus  snot csv
     {
-        public PricingEngine(List<PricingRule> rules, Dictionary<char, int> prices)
+        public PlainTextOrdersPricingEngine(List<PricingRule<char>> rules, IOrderParser<char, string> orderParser)
         {
             Rules = rules;
-            Prices = prices;
+            OrderParser = orderParser;
         }
 
-        private string _order;
 
-        public List<PricingRule> Rules { get; }
-        public Dictionary<char, int> Prices { get; }
+        public List<PricingRule<char>> Rules { get; }
+        public IOrderParser<char, string> OrderParser { get; }
 
-        private List<Order> ParseOrder()//TODO: refactor out as interface to inject in usin DI, remove implementation from here to make extensible
-        {
-            char[] skus = _order.ToCharArray();
-            List<Order> orders = new List<Order>();
-            for (int i = 0; i < skus.Length; i++)
-            {
-                var price = Prices[skus[i]];//what if not found?
-
-                orders.Add(new Order()
-                {
-                    Sku = skus[i],
-                    Price = price
-                });
-            }
-            return orders;
-        } 
         public int GetTotal(string order)
         {
-            _order = order;
-            List<Order> orders = ParseOrder();
+            List<Order<char>> orders = OrderParser.ParseOrder(order);
             return GetTotal(orders);
         }
 
-        private int GetTotal(List<Order> orders)
+        private int GetTotal(List<Order<char>> orders)
         { 
             //apply discounts
             List<char> discountedSkus = orders
@@ -48,7 +33,7 @@ namespace KataDomain
                     orders.Count(r => r.Sku == a.Sku) >=
                     Rules.First(r => r.SKU == a.Sku).Quantity)
                 .Select(x => x.Sku).ToList();
-            var rulesToApplyy = Rules.Where(a => discountedSkus.Contains(a.SKU)).ToArray();
+            PricingRule<char>[] rulesToApplyy = Rules.Where(a => discountedSkus.Contains(a.SKU)).ToArray();
             //calculate prices for discounted orders and remove those orders
 
             for (int i = 0; i < rulesToApplyy.Length; i++)
