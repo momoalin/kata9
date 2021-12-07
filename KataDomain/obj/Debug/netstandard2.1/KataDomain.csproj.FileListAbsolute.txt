@@ -1,0 +1,12 @@
+/Users/momoalin/Projects/kata/KataDomain/bin/Debug/netstandard2.1/KataDomain.deps.json
+/Users/momoalin/Projects/kata/KataDomain/bin/Debug/netstandard2.1/KataDomain.dll
+/Users/momoalin/Projects/kata/KataDomain/bin/Debug/netstandard2.1/KataDomain.pdb
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.csproj.AssemblyReference.cache
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.csproj.CoreCompileInputs.cache
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.AssemblyInfoInputs.cache
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.AssemblyInfo.cs
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.dll
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.pdb
+/Users/momoalin/Projects/kata/KataDomain/bin/Debug/netstandard2.1/KataCore.dll
+/Users/momoalin/Projects/kata/KataDomain/bin/Debug/netstandard2.1/KataCore.pdb
+/Users/momoalin/Projects/kata/KataDomain/obj/Debug/netstandard2.1/KataDomain.csproj.CopyComplete

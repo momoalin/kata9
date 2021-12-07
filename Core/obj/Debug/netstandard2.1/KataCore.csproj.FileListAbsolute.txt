@@ -1,0 +1,9 @@
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.csproj.AssemblyReference.cache
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.csproj.CoreCompileInputs.cache
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.AssemblyInfoInputs.cache
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.AssemblyInfo.cs
+/Users/momoalin/Projects/kata/Core/bin/Debug/netstandard2.1/KataCore.deps.json
+/Users/momoalin/Projects/kata/Core/bin/Debug/netstandard2.1/KataCore.dll
+/Users/momoalin/Projects/kata/Core/bin/Debug/netstandard2.1/KataCore.pdb
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.dll
+/Users/momoalin/Projects/kata/Core/obj/Debug/netstandard2.1/KataCore.pdb

@@ -20,7 +20,9 @@ namespace Kata.Domain.Implementation
             for (int i = 0; i < skus.Length; i++)
             {
                 var price = PriceOfSkuProvider.GetPrice(skus[i]);//what if not found?
-
+                //give up business rules for discount, processed list
+                //set order price according to discount applied
+                //whichever rule(by x get n free, by x for n price, buy x per metric) w/conversion
                 orders.Add(new Order<char>()
                 {
                     Sku = skus[i],

@@ -1,0 +1,37 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "KataDomain/1.0.0": {
+        "dependencies": {
+          "KataCore": "1.0.0"
+        },
+        "runtime": {
+          "KataDomain.dll": {}
+        }
+      },
+      "KataCore/1.0.0": {
+        "runtime": {
+          "KataCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KataDomain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KataCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

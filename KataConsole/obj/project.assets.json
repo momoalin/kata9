@@ -1,0 +1,106 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "KataCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/KataCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KataCore.dll": {}
+        }
+      },
+      "KataDomain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "KataCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/KataDomain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KataDomain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KataCore/1.0.0": {
+      "type": "project",
+      "path": "../Core/KataCore.csproj",
+      "msbuildProject": "../Core/KataCore.csproj"
+    },
+    "KataDomain/1.0.0": {
+      "type": "project",
+      "path": "../KataDomain/KataDomain.csproj",
+      "msbuildProject": "../KataDomain/KataDomain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "KataDomain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/momoalin/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/momoalin/Projects/kata/KataConsole/KataConsole.csproj",
+      "projectName": "KataConsole",
+      "projectPath": "/Users/momoalin/Projects/kata/KataConsole/KataConsole.csproj",
+      "packagesPath": "/Users/momoalin/.nuget/packages/",
+      "outputPath": "/Users/momoalin/Projects/kata/KataConsole/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/momoalin/.config/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "/Users/momoalin/Projects/kata/KataDomain/KataDomain.csproj": {
+              "projectPath": "/Users/momoalin/Projects/kata/KataDomain/KataDomain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
