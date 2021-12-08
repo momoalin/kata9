@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Kata.Core.Abstractions
 {
-    public interface IPriceEngine<T>
+    public interface IPriceEngine
     {
-        IList<IPricing> ListOfPricing { get; set; }
+        IList<IPricingStrategy> ListOfPricing { get; set; }
 
-        public int GetTotal(T order);
+        public double GetTotal();
     }
 }

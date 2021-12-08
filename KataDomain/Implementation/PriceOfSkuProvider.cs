@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Kata.Core.Abstractions;
 
-namespace KataDomain.Implementation
+namespace Kata.Domain.Implementation
 {
     public class PriceOfSkuProvider<T> : IPriceOfSkuProvider<T>
     {

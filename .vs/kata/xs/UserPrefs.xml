@@ -1,13 +1,10 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{792FDE43-B97C-4528-86BB-CAD1CC0DAB91}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Core/Abstractions/IPricing.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KataDomain/Implementation/QuantityForDiscountPricingRule.cs">
     <Files>
-      <File FileName="KataDomain/Implementation/PricingEngine.cs" Line="10" Column="54" />
-      <File FileName="KataTest/PricingUnitTest.cs" Line="17" Column="43" />
-      <File FileName="KataDomain/DTO/QuantityForDiscountPricingRule.cs" Line="6" Column="18" />
-      <File FileName="KataDomain/Abstractions/IPricing.cs" Line="4" Column="22" />
-      <File FileName="Core/Abstractions/IPriceEngine.cs" Line="8" Column="25" />
-      <File FileName="KataDomain/Implementation/PriceOfSkuProvider.cs" Line="1" Column="1" />
-      <File FileName="KataDomain/Implementation/StringOrderParser.cs" Line="1" Column="1" />
+      <File FileName="KataTest/PricingUnitTest.cs" Line="17" Column="61" />
+      <File FileName="KataDomain/Implementation/PricingStrategyFactory.cs" Line="10" Column="24" />
+      <File FileName="KataDomain/Implementation/PricingEngine.cs" Line="20" Column="22" />
+      <File FileName="KataDomain/Implementation/QuantityForDiscountPricingRule.cs" Line="24" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,18 +12,21 @@
           <Node name="kata" expanded="True">
             <Node name="KataConsole" expanded="True" />
             <Node name="KataCore" expanded="True">
-              <Node name="Abstractions" expanded="True">
-                <Node name="IPricing.cs" selected="True" />
-              </Node>
+              <Node name="Abstractions" expanded="True" />
             </Node>
             <Node name="KataDomain" expanded="True">
               <Node name="Abstractions" expanded="True" />
               <Node name="DTO" expanded="True" />
-              <Node name="Implementation" expanded="True" />
+              <Node name="Implementation" expanded="True">
+                <Node name="QuantityForDiscountPricingRule.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="KataTest" expanded="True" />
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
@@ -35,7 +35,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.KataConsole FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.KataTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>
@@ -44,8 +43,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/momoalin/Projects/kata/KataTest/PricingUnitTest.cs" relfile="KataTest/PricingUnitTest.cs" line="29" column="13" />
-      <Breakpoint file="/Users/momoalin/Projects/kata/KataDomain/Implementation/PricingEngine.cs" relfile="KataDomain/Implementation/PricingEngine.cs" line="29" column="13" />
+      <Breakpoint file="/Users/momoalin/Projects/kata/KataTest/PricingUnitTest.cs" relfile="KataTest/PricingUnitTest.cs" line="24" column="13" />
+      <Breakpoint file="/Users/momoalin/Projects/kata/KataDomain/Implementation/PricingStrategyFactory.cs" relfile="KataDomain/Implementation/PricingStrategyFactory.cs" line="9" column="13" />
+      <Breakpoint file="/Users/momoalin/Projects/kata/KataDomain/Implementation/PricingEngine.cs" relfile="KataDomain/Implementation/PricingEngine.cs" line="24" column="13" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

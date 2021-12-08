@@ -1,0 +1,4 @@
+/Users/momoalin/Projects/kata/KataConsole/obj/Debug/netcoreapp3.1/KataConsole.csproj.AssemblyReference.cache
+/Users/momoalin/Projects/kata/KataConsole/obj/Debug/netcoreapp3.1/KataConsole.csproj.CoreCompileInputs.cache
+/Users/momoalin/Projects/kata/KataConsole/obj/Debug/netcoreapp3.1/KataConsole.AssemblyInfoInputs.cache
+/Users/momoalin/Projects/kata/KataConsole/obj/Debug/netcoreapp3.1/KataConsole.AssemblyInfo.cs

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Kata.Domain;
+﻿using System.Collections.Generic;
 using Kata.Domain.DTO;
 using Kata.Domain.Implementation;
-using KataDomain.Implementation;
 using Xunit;
 
 namespace KataTest
@@ -13,42 +10,40 @@ namespace KataTest
         [Fact]
         public void TestTotals()
         {
-            List<QuantityForDiscountPricingRule<char>> rules;
+            List<QuantityForDiscount> rules;
             Dictionary<char, double> prices;
             MockData(out rules, out prices);
 
-            var priceEngine = new PlainTextOrdersPricingEngine(rules,
-                new CharSkusOrderParser(new PriceOfSkuProvider<char>(prices)));
-            Assert.Equal(0, priceEngine.GetTotal(""));
-            Assert.Equal(50, priceEngine.GetTotal("A"));
-            Assert.Equal(80, priceEngine.GetTotal("AB"));
-            Assert.Equal(115, priceEngine.GetTotal("CDBA"));
+            Assert.Equal(0, PricingStrategyFactory.GetQuantityForDiscountTotal("", rules, prices));
+            Assert.Equal(50, PricingStrategyFactory.GetQuantityForDiscountTotal("A", rules, prices));
+            Assert.Equal(80, PricingStrategyFactory.GetQuantityForDiscountTotal("AB", rules, prices));
+            Assert.Equal(115, PricingStrategyFactory.GetQuantityForDiscountTotal("CDBA", rules, prices));
 
-            Assert.Equal(100, priceEngine.GetTotal("AA"));
-            Assert.Equal(130, priceEngine.GetTotal("AAA"));
-            Assert.Equal(180, priceEngine.GetTotal("AAAA"));
-            Assert.Equal(230, priceEngine.GetTotal("AAAAA"));
-            Assert.Equal(260, priceEngine.GetTotal("AAAAAA"));
-            Assert.Equal(360, priceEngine.GetTotal("AAAAAAAA"));
-            Assert.Equal(390, priceEngine.GetTotal("AAAAAAAAA"));
+            Assert.Equal(100, PricingStrategyFactory.GetQuantityForDiscountTotal("AA", rules, prices));
+            Assert.Equal(130, PricingStrategyFactory.GetQuantityForDiscountTotal("AAA", rules, prices));
+            Assert.Equal(180, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAA", rules, prices));
+            Assert.Equal(230, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAAA", rules, prices));
+            Assert.Equal(260, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAAAA", rules, prices));
+            Assert.Equal(360, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAAAAAA", rules, prices));
+            Assert.Equal(390, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAAAAAAA", rules, prices));
 
-            Assert.Equal(160, priceEngine.GetTotal("AAAB"));
-            Assert.Equal(175, priceEngine.GetTotal("AAABB"));
-            Assert.Equal(190, priceEngine.GetTotal("AAABBD"));
-            Assert.Equal(190, priceEngine.GetTotal("DABABA"));
-            Assert.Equal(430, priceEngine.GetTotal("DABABADABABAA"));
+            Assert.Equal(160, PricingStrategyFactory.GetQuantityForDiscountTotal("AAAB", rules, prices));
+            Assert.Equal(175, PricingStrategyFactory.GetQuantityForDiscountTotal("AAABB", rules, prices));
+            Assert.Equal(190, PricingStrategyFactory.GetQuantityForDiscountTotal("AAABBD", rules, prices));
+            Assert.Equal(190, PricingStrategyFactory.GetQuantityForDiscountTotal("DABABA", rules, prices));
+            Assert.Equal(430, PricingStrategyFactory.GetQuantityForDiscountTotal("DABABADABABAA", rules, prices));
 
         }
 
-        private static void MockData(out List<QuantityForDiscountPricingRule<char>> rules, out Dictionary<char, double> prices)
+        private static void MockData(out List<QuantityForDiscount> rules, out Dictionary<char, double> prices)
         {
-            rules = new List<QuantityForDiscountPricingRule<char>>()
+            rules = new List<QuantityForDiscount>()
             {
-                new QuantityForDiscountPricingRule<char>()
+                new QuantityForDiscount()
                 {
                     SKU='A', Discount = 130, Quantity=3
                 },
-                new QuantityForDiscountPricingRule<char>()
+                new QuantityForDiscount()
                 {
                     SKU='B', Discount = 45, Quantity=2
                 }

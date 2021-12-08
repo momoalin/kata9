@@ -1,8 +1,8 @@
 ﻿using System;
-namespace KataDomain.Abstractions
+namespace Kata.Core.Abstractions
 {
-    public interface IPricing
+    public interface IPricingStrategy
     {
-        public double GetDiscountPricing();
+        public double ApplyDiscountPerRule();
     }
 }
